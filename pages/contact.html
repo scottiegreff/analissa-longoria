@@ -1,0 +1,118 @@
+<?php
+        // error reporting
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+      
+        // Import functions
+        require_once('validation.php');
+      
+        // Validate form submission
+        validate();
+       ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CONTACT</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/de65dd2fd6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 id="contact">CONTACT:</h1>
+    <h2 id="email-title">longoriaanalissa@gmail.com</h2>
+    <h2 id="city">vancouver b.c.</h2>
+
+    <a
+      href="https://www.instagram.com/analissalongoria/?igshid=NDA1YzNhOGU="
+      target="_blank"
+      ><i class="fab fa-instagram fa-4x"></i
+    ></a>
+    <div class="newsletter-wrapper">
+      <h1 class="newsletter-title">newsletter & updates</h1>
+
+      <form action="contact.php" method="post">
+        <label class="fname-label" for="fname">
+          first name:
+          <input type="text" name="fname" id="fname" />
+          <!-- Display validation message for date input -->
+          <?php the_validation_message("fname"); ?>
+        </label>
+        <label class="lname-label" for="lname">
+          last name:
+          <input type="text" name="lname" id="lname" />
+          <!-- Display validation message for date input -->
+          <?php the_validation_message("lname"); ?>
+        </label>
+
+        <label class="email-label" for="email">
+          email address:
+          <input type="text" name="email" id="email" />
+          <!-- Display validation message for email input -->
+          <?php the_validation_message('email'); ?>
+        </label>
+
+        <fieldset>
+          <legend>select your interest(s):</legend>
+
+          <input
+            type="checkbox"
+            name="interests[]"
+            id="photography-cbk"
+            value="photography"
+          />
+
+          <label id="photo-cbk-title" for="photography">photography</label>
+
+          <input
+            type="checkbox"
+            name="interests[]"
+            id="fashion-cbk"
+            value="fashion"
+          />
+          <label id="fasion-cbk-title" for="fashion">fashion</label>
+
+          <input
+            type="checkbox"
+            name="interests[]"
+            id="editorial-cbk"
+            value="editorial"
+          />
+          <label id="editorial-cbk-title" for="editorial">editorial</label>
+
+          <input
+            type="checkbox"
+            name="interests[]"
+            id="friends-cbk"
+            value="friends"
+            checked
+          />
+          <label id="friends-cbk-title" for="friends"> friends</label>
+
+          <!-- Display validation message checkbox group -->
+          <?php the_validation_message('animals'); ?>
+        </fieldset>
+
+        <input class="reset-btn" type="reset" name="" value="Reset Form" />
+
+        <input class="submit-btn" type="submit" value="Submit Form" />
+      </form>
+
+      <!-- Display the results -->
+      <?php the_results(); ?>
+    </div>
+
+    <a class="contact-name" href="../index.html">ANALISSA LONGORIA</a>
+  </body>
+</html>
